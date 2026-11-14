@@ -55,3 +55,6 @@ func _process(delta: float) -> void:
 
 func enqueueText(textDTO):
 	textQueue.append(textDTO)
+	
+func clearQueue():
+	textQueue = []
