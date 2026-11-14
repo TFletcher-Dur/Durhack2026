@@ -1,6 +1,7 @@
 extends Control
 
-const TEXT_SCROLL_SPEED = 15.0 #text speed in ms per char
+#const TEXT_SCROLL_SPEED = 0.015 #text speed in s per char
+#Now set on each TextDTO individually.
 
 var textQueue = []
 var isShowingText = false
@@ -16,7 +17,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (not isShowingText): #Starting text display.
-		print(textQueue.is_empty())
+		#print(textQueue.is_empty())
 		if (not textQueue.is_empty()):
 			currentTextDTO = textQueue.pop_front()
 			positionInCurrentText = 0
@@ -26,10 +27,11 @@ func _process(delta: float) -> void:
 	if (isShowingText):
 		timeSincePreviousChar += delta
 		if (Input.is_action_just_pressed("interact")):
-			timeSincePreviousChar = 0.0
-			if ((currentDisplayedText != currentTextDTO.text) and currentTextDTO.isSkippable):
-				currentDisplayedText = currentTextDTO.text
-				positionInCurrentText = -1
+			timeSincePreviousChar = 0.0 #This means that the player resets the scroll timer every frame when the text is unskippable!
+			if ((currentDisplayedText != currentTextDTO.text)):
+				if (currentTextDTO.isSkippable):
+					currentDisplayedText = currentTextDTO.text
+					positionInCurrentText = -1
 			else:
 				currentDisplayedText = ""
 				if (not textQueue.is_empty()):
@@ -39,10 +41,17 @@ func _process(delta: float) -> void:
 					currentTextDTO = null
 					positionInCurrentText = -1
 					isShowingText = false
+					hide()
 		else:
-			while (timeSincePreviousChar > TEXT_SCROLL_SPEED):
-				timeSincePreviousChar -= TEXT_SCROLL_SPEED
+			while (
+				(timeSincePreviousChar > currentTextDTO.textScrollSpeed)
+				and (currentDisplayedText != currentTextDTO.text)
+			):
+				timeSincePreviousChar -= currentTextDTO.textScrollSpeed
 				currentDisplayedText += currentTextDTO.text[positionInCurrentText]
 				positionInCurrentText += 1
 		$TextBoxBackground/CharacterDialogueText.text = currentDisplayedText
 				
+
+func enqueueText(textDTO):
+	textQueue.append(textDTO)

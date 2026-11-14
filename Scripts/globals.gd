@@ -3,6 +3,7 @@ extends Node
 class TextDTO:
 	var characterName
 	var text
+	var textScrollSpeed = 0.015 #characters per second.
 	var isSkippable = true
 
 # Called when the node enters the scene tree for the first time.
