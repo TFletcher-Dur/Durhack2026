@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bj2w0cq8hw1nh"]
+
+[ext_resource type="Script" uid="uid://cwl0vrqg1yae4" path="res://Scripts/Textbox_Scripts/textbox_test.gd" id="1_psw4q"]
+
+[node name="Control" type="Control" unique_id=1045537791]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_psw4q")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1358813960]
+layout_mode = 0
+offset_top = 450.0
+offset_right = 800.0
+offset_bottom = 600.0
