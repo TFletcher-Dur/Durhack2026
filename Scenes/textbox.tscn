@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bj2w0cq8hw1nh"]
 
-[ext_resource type="Script" uid="uid://cwl0vrqg1yae4" path="res://Scripts/Textbox_Scripts/textbox_test.gd" id="1_psw4q"]
+[ext_resource type="Script" uid="uid://c1aox1xnrp0ot" path="res://Scripts/Textbox_Scripts/textHandler.gd" id="1_psw4q"]
 
 [node name="TextBox (Control)" type="Control" unique_id=1045537791]
 layout_mode = 3
