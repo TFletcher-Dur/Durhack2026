@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://cvijn8lnp68cu"]
 
+[ext_resource type="PackedScene" uid="uid://c71cgmrtwssjb" path="res://Scenes/grid_manager.tscn" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://b54doehfriycc" path="res://Scenes/player.tscn" id="2_wrm1d"]
+
 [node name="Game" type="Node2D" unique_id=1777474369]
+
+[node name="grid_manager" parent="." unique_id=1151319543 instance=ExtResource("1_qxrlw")]
+position = Vector2(39, 41)
+
+[node name="CharacterBody2D" parent="." unique_id=391478453 instance=ExtResource("2_wrm1d")]
+position = Vector2(41, 40)
+scale = Vector2(0.5, 0.5)

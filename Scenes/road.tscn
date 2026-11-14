@@ -8,11 +8,11 @@ script = ExtResource("1_b51y2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=443869084]
 rotation = 1.5707964
-scale = Vector2(5, 5)
+scale = Vector2(9, 6)
 texture = ExtResource("2_b51y2")
 
 [node name="RIGHT" type="Marker2D" parent="." unique_id=315867320]
-position = Vector2(600, 0)
+position = Vector2(720, 0)
 
 [node name="LEFT" type="Marker2D" parent="." unique_id=641859407]
-position = Vector2(-600, 0)
+position = Vector2(-720, 0)

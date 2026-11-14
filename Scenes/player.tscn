@@ -15,3 +15,5 @@ texture = ExtResource("2_cvnsp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1825464600]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_w2glv")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1078098508]
