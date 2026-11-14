@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://31k1bltgdw8k"]
 
 [ext_resource type="PackedScene" uid="uid://bj2w0cq8hw1nh" path="res://Scenes/textbox.tscn" id="1_3ie85"]
+[ext_resource type="Script" uid="uid://jnwr6i7icf1t" path="res://Scripts/TradingWindowScripts/tradingwindow.gd" id="1_4v6o4"]
 [ext_resource type="Texture2D" uid="uid://5d3buor76kj1" path="res://Assets/icon.svg" id="2_5go8d"]
 
 [node name="TradingWindow" type="Control" unique_id=454624988]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_4v6o4")
 
 [node name="TextBox" parent="." unique_id=1045537791 instance=ExtResource("1_3ie85")]
 layout_mode = 0
@@ -28,12 +30,14 @@ text = "Sell"
 layout_mode = 0
 offset_right = 250.0
 offset_bottom = 200.0
+mouse_filter = 1
 color = Color(1, 0, 0, 1)
 
 [node name="TitleText" type="RichTextLabel" parent="SellButton" unique_id=1756296016]
 layout_mode = 0
 offset_right = 250.0
 offset_bottom = 50.0
+mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 32
 text = "Sell"
 vertical_alignment = 1
@@ -43,6 +47,7 @@ layout_mode = 0
 offset_top = 50.0
 offset_right = 250.0
 offset_bottom = 150.0
+mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 48
 text = "14.8756"
 horizontal_alignment = 1
@@ -53,6 +58,7 @@ layout_mode = 0
 offset_top = 150.0
 offset_right = 250.0
 offset_bottom = 200.0
+mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 32
 text = "1,000,000,000"
 horizontal_alignment = 1
@@ -70,12 +76,14 @@ text = "Buy"
 layout_mode = 0
 offset_right = 250.0
 offset_bottom = 200.0
+mouse_filter = 1
 color = Color(0, 0.6427573, 0.2955825, 1)
 
 [node name="TitleText" type="RichTextLabel" parent="BuyButton" unique_id=789999537]
 layout_mode = 0
 offset_right = 250.0
 offset_bottom = 50.0
+mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 32
 text = "Buy"
 horizontal_alignment = 2
@@ -86,6 +94,7 @@ layout_mode = 0
 offset_top = 50.0
 offset_right = 250.0
 offset_bottom = 150.0
+mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 48
 text = "14.8756"
 horizontal_alignment = 1
@@ -96,11 +105,12 @@ layout_mode = 0
 offset_top = 150.0
 offset_right = 250.0
 offset_bottom = 200.0
+mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 32
 text = "1,000,000,000"
 horizontal_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=768131868]
+[node name="TradingUnit" type="TextEdit" parent="." unique_id=768131868]
 layout_mode = 0
 offset_left = 300.0
 offset_top = 350.0
@@ -158,3 +168,5 @@ theme_override_font_sizes/normal_font_size = 32
 text = "ABC <=> DEF"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="SellButton" to="." method="_on_sell_button_pressed"]
