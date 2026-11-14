@@ -16,6 +16,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (not isShowingText): #Starting text display.
+		print(textQueue.is_empty())
 		if (not textQueue.is_empty()):
 			currentTextDTO = textQueue.pop_front()
 			positionInCurrentText = 0

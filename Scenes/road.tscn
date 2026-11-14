@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://f7q3hfanhlbd"]
+
+[ext_resource type="Script" uid="uid://blx7ludah8ff3" path="res://road.gd" id="1_b51y2"]
+[ext_resource type="Texture2D" uid="uid://l3q82do4yggg" path="res://Assets/temp_road.png" id="2_b51y2"]
+
+[node name="road" type="Node2D" unique_id=105561522]
+script = ExtResource("1_b51y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=443869084]
+rotation = 1.5707964
+scale = Vector2(5, 5)
+texture = ExtResource("2_b51y2")
+
+[node name="RIGHT" type="Marker2D" parent="." unique_id=315867320]
+position = Vector2(600, 0)
+
+[node name="LEFT" type="Marker2D" parent="." unique_id=641859407]
+position = Vector2(-600, 0)

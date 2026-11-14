@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://csa0emuvp5y75"]
+
+[ext_resource type="Script" uid="uid://blx7ludah8ff3" path="res://road.gd" id="1_ot8dy"]
+[ext_resource type="Texture2D" uid="uid://bpeuth2488i5p" path="res://Assets/temp_crossroad.png" id="2_ot8dy"]
+
+[node name="crossroad" type="Node2D" unique_id=105561522]
+script = ExtResource("1_ot8dy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=443869084]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_ot8dy")
+
+[node name="UP" type="Marker2D" parent="." unique_id=863945741]
+position = Vector2(0, -40)
+
+[node name="DOWN" type="Marker2D" parent="." unique_id=204157728]
+position = Vector2(0, 40)
+
+[node name="LEFT" type="Marker2D" parent="." unique_id=179462912]
+position = Vector2(40, 0)
+
+[node name="RIGHT" type="Marker2D" parent="." unique_id=598646651]
+position = Vector2(-40, 0)
