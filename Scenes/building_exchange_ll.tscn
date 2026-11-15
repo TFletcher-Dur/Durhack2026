@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://q0qms16pqpn3"]
 
-[ext_resource type="Script" uid="uid://bgdsrhnrx46ev" path="res://Scenes/building_exchange_ll.gd" id="1_6ukrj"]
+[ext_resource type="Script" uid="uid://bgdsrhnrx46ev" path="res://Scenes/building_exchange.gd" id="1_6ukrj"]
 [ext_resource type="Texture2D" uid="uid://d3fldgomkxogr" path="res://Assets/building_exchange_ll.png" id="1_8bfgd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6j3a"]
@@ -39,3 +39,6 @@ position = Vector2(-197, 360)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=504207930]
 position = Vector2(15, -1.5)
 shape = SubResource("RectangleShape2D_navjx")
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]

@@ -90,12 +90,12 @@ func spawn_buildings():
 	# pick buildings
 	# score!
 	var SPAWNERS = [$buildingSpawnLL, $buildingSpawnLR, $buildingSpawnUL, $buildingSpawnUR]
-	
+	print(shopTuple)
 	# Spawner LL
 	if (rotation_degrees != 90):
 		for spawner_index in len(SPAWNERS):
 			if spawner_index == 0:
-				if shopTuple[0] == 0:
+				if shopTuple[0] == null:
 					var temp = standardLL.instantiate()
 					add_child(temp)
 					temp.global_position = SPAWNERS[spawner_index].global_position
@@ -105,9 +105,11 @@ func spawn_buildings():
 					temp.global_position = SPAWNERS[spawner_index].global_position
 					temp.set_modulation(Color(randf(),randf(), randf()))
 					temp.set_text("WOW! " + str(randi()))
+					temp.cur1 = shopTuple[0][0]
+					temp.cur2 = shopTuple[0][1]
 				
 			elif spawner_index == 1:
-				if shopTuple[1] == 0:
+				if shopTuple[1] == null:
 					var temp = standardLR.instantiate()
 					add_child(temp)
 					temp.global_position = SPAWNERS[spawner_index].global_position
@@ -117,6 +119,8 @@ func spawn_buildings():
 					temp.global_position = SPAWNERS[spawner_index].global_position
 					temp.set_modulation(Color(randf(),randf(), randf()))
 					temp.set_text("WOW! " + str(randi()))
+					temp.cur1 = shopTuple[1][0]
+					temp.cur2 = shopTuple[1][1]
 				pass
 			elif spawner_index == 2:
 				var temp = standardUL.instantiate()

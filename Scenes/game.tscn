@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c71cgmrtwssjb" path="res://Scenes/grid_manager.tscn" id="1_qxrlw"]
 [ext_resource type="Script" uid="uid://buux6ow65kv8v" path="res://Scripts/game.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://b54doehfriycc" path="res://Scenes/player.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://31k1bltgdw8k" path="res://Scenes/trading_window.tscn" id="5_wowpa"]
 
 [node name="Game" type="Node2D" unique_id=1777474369]
 script = ExtResource("1_wrm1d")
@@ -18,3 +19,6 @@ scale = Vector2(0.5, 0.5)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1365565449]
 
 [node name="TextBox" parent="CanvasLayer" unique_id=1045537791 instance=ExtResource("1_ebmjs")]
+
+[node name="TradingWindow" parent="CanvasLayer" unique_id=454624988 instance=ExtResource("5_wowpa")]
+visible = false
