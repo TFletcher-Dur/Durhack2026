@@ -105,7 +105,7 @@ func spawn_buildings():
 					add_child(temp)
 					temp.global_position = SPAWNERS[spawner_index].global_position
 					temp.set_modulation(Color(randf(),randf(), randf()))
-					temp.set_text("WOW! " + str(randi()))
+					temp.set_text(shopTuple[0][0] + " <=> " + shopTuple[0][1])
 					temp.cur1 = shopTuple[0][0]
 					temp.cur2 = shopTuple[0][1]
 				
@@ -119,7 +119,7 @@ func spawn_buildings():
 					add_child(temp)
 					temp.global_position = SPAWNERS[spawner_index].global_position
 					temp.set_modulation(Color(randf(),randf(), randf()))
-					temp.set_text("WOW! " + str(randi()))
+					temp.set_text(shopTuple[1][0] + " <=> " + shopTuple[1][1])
 					temp.cur1 = shopTuple[1][0]
 					temp.cur2 = shopTuple[1][1]
 				pass

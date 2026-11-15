@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dmbsxjl1pjqmk"]
+
+[ext_resource type="Texture2D" uid="uid://dq841j7og7ygy" path="res://Assets/clock1.png" id="1_wqlcb"]
+[ext_resource type="Texture2D" uid="uid://b4eds6brgjfkv" path="res://Assets/clock2.png" id="2_yk8c3"]
+[ext_resource type="Texture2D" uid="uid://vh1frmdnkagf" path="res://Assets/clock3.png" id="3_ewrvr"]
+[ext_resource type="Texture2D" uid="uid://dh74dn2akki1q" path="res://Assets/clock4.png" id="4_sd8co"]
+[ext_resource type="Texture2D" uid="uid://cw5mda06kq3wi" path="res://Assets/clock5.png" id="5_jiq1o"]
+[ext_resource type="Texture2D" uid="uid://di2vxhh83ivrx" path="res://Assets/clock6.png" id="6_q4bxq"]
+[ext_resource type="Texture2D" uid="uid://b80ipwdr60xb3" path="res://Assets/clock7.png" id="7_vv7c3"]
+[ext_resource type="Texture2D" uid="uid://bec6jumnyopmy" path="res://Assets/clock8.png" id="8_teoby"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvbwm"]
+animations = [{
+"frames": [{
+"duration": 7.5,
+"texture": ExtResource("1_wqlcb")
+}, {
+"duration": 7.5,
+"texture": ExtResource("2_yk8c3")
+}, {
+"duration": 7.5,
+"texture": ExtResource("3_ewrvr")
+}, {
+"duration": 7.5,
+"texture": ExtResource("4_sd8co")
+}, {
+"duration": 7.5,
+"texture": ExtResource("5_jiq1o")
+}, {
+"duration": 7.5,
+"texture": ExtResource("6_q4bxq")
+}, {
+"duration": 7.5,
+"texture": ExtResource("7_vv7c3")
+}, {
+"duration": 7.5,
+"texture": ExtResource("8_teoby")
+}],
+"loop": 0,
+"name": &"Clock_Ticking",
+"speed": 1.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SystemFont" id="SystemFont_cvbwm"]
+font_names = PackedStringArray("Cascadia Code")
+
+[node name="datecontrol" type="Control" unique_id=2053301292]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="clockanim" type="AnimatedSprite2D" parent="." unique_id=1676635082]
+texture_filter = 1
+position = Vector2(746, 49)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_cvbwm")
+animation = &"Clock_Ticking"
+frame = 7
+frame_progress = 1.0
+
+[node name="DayLabel" type="RichTextLabel" parent="." unique_id=203326458]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 15.0
+offset_right = 692.0
+offset_bottom = 62.0
+theme_override_fonts/normal_font = SubResource("SystemFont_cvbwm")
+theme_override_font_sizes/normal_font_size = 31
+text = "Day 1"
+horizontal_alignment = 2
+
+[node name="WeekLabel" type="RichTextLabel" parent="." unique_id=1288950956]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 50.0
+offset_right = 691.0
+offset_bottom = 79.0
+theme_override_fonts/normal_font = SubResource("SystemFont_cvbwm")
+theme_override_font_sizes/normal_font_size = 21
+text = "Week 1"
+horizontal_alignment = 2

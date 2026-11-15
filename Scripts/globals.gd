@@ -7,6 +7,7 @@ signal exchange_window_open(left, right)
 
 const DEFAULT_RANDOM_NOISE_MAGNITUDE = 0.005
 const _TIME_BETWEEN_RANDOM_NOISE_APPLICATIONS = 0.5 #s
+var show_tooltip = false
 var in_event = false
 var _timeSincePreviousRandomNoiseApplication = 0.0 #Private used in random noise application timing.
 

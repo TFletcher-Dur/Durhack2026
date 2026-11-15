@@ -202,6 +202,8 @@ func _dialogue_finished():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$CanvasLayer/datecontrol/DayLabel.text = "Day 1"
+	$CanvasLayer/datecontrol/WeekLabel.text = "Week 1"
 	add_child(gameloop_timer)
 	add_child(galactic_timer)
 	gameloop_timer.timeout.connect(progress_day)
@@ -233,7 +235,17 @@ func _on_player_detected(type: String) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Globals.show_tooltip:
+		$CanvasLayer/interactTooltip.show()
+	else:
+		$CanvasLayer/interactTooltip.hide()
+		
+	
+	if Globals.in_event:
+		$CanvasLayer/datecontrol.hide()
+		$CanvasLayer/interactTooltip.hide()
+	else:
+		$CanvasLayer/datecontrol.show()
 
 
 # call function that initiates timer
@@ -242,7 +254,8 @@ func _process(delta: float) -> void:
 # When day reaches 7, do something funky idk.
 
 func start_timer():
-	gameloop_timer.start(5)
+	$CanvasLayer/datecontrol/clockanim.play("Clock_Ticking")
+	gameloop_timer.start(60)
 
 func progress_day():
 	day += 1
@@ -251,6 +264,8 @@ func progress_day():
 		day = 1
 	print(day)
 	print(week)
+	$CanvasLayer/datecontrol/DayLabel.text = "Day " + str(day)
+	$CanvasLayer/datecontrol/WeekLabel.text = "Week " + str(week)
 	if week <= 4:
 		start_timer()
 
@@ -262,3 +277,5 @@ func teleportEvent():
 	text.characterName = "Developer"
 	text.text = "Because everyone loves getting randomly teleported across the map, we created an event to randomly teleport you across the map! You're welcome."
 	$CanvasLayer/TextBox.enqueueText(text)
+	
+	

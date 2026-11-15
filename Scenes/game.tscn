@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://buux6ow65kv8v" path="res://Scripts/game.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://b54doehfriycc" path="res://Scenes/player.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://31k1bltgdw8k" path="res://Scenes/trading_window.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://dmbsxjl1pjqmk" path="res://Scenes/datecontrol.tscn" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://mlmpjikdcxwd" path="res://Scenes/interact_tooltip.tscn" id="7_1l0tm"]
 
 [node name="Game" type="Node2D" unique_id=1777474369]
 script = ExtResource("1_wrm1d")
@@ -22,3 +24,10 @@ scale = Vector2(0.5, 0.5)
 
 [node name="TradingWindow" parent="CanvasLayer" unique_id=454624988 instance=ExtResource("5_wowpa")]
 visible = false
+
+[node name="datecontrol" parent="CanvasLayer" unique_id=2053301292 instance=ExtResource("6_i6g32")]
+mouse_filter = 2
+
+[node name="interactTooltip" parent="CanvasLayer" unique_id=594809012 instance=ExtResource("7_1l0tm")]
+visible = false
+mouse_filter = 2

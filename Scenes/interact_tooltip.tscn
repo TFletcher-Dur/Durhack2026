@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://mlmpjikdcxwd"]
+
+[ext_resource type="Texture2D" uid="uid://coobsovu51bfl" path="res://Assets/interact_prompt.png" id="1_fx8sq"]
+
+[sub_resource type="SystemFont" id="SystemFont_6jg87"]
+font_names = PackedStringArray("Cascadia Code")
+
+[node name="interactTooltip" type="Control" unique_id=594809012]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="InteractPrompt" type="Sprite2D" parent="." unique_id=1947073003]
+texture_filter = 1
+position = Vector2(753, 554)
+scale = Vector2(4, 4)
+texture = ExtResource("1_fx8sq")
+
+[node name="DayLabel" type="RichTextLabel" parent="." unique_id=515795411]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 548.0
+offset_top = 534.0
+offset_right = 710.0
+offset_bottom = 581.0
+theme_override_fonts/normal_font = SubResource("SystemFont_6jg87")
+theme_override_font_sizes/normal_font_size = 31
+text = "INTERACT"
+horizontal_alignment = 2
