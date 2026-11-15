@@ -9,8 +9,15 @@ func _ready() -> void:
 	build_grid.call_deferred()
 
 var road_arr = []
+var shop_index = 0
+var shops_arr = []
+
 var color_arr = ["red", "green", "yellow"]
 func build_grid(n: int = 5):
+	var num_shops = (Globals.NUM_CURRENCIES * (Globals.NUM_CURRENCIES - 1)) / 2
+	for i in range(num_shops): shops_arr.append(1)
+	for i in range(((n ** 2) * 2) - num_shops): shops_arr.append(0)
+	#print(len(shops_arr))
 	var cross = $crossroad
 	var nextX = cross.get_node("RIGHT")
 	var nextY = cross.get_node("DOWN")
@@ -37,7 +44,7 @@ func build_grid(n: int = 5):
 		nextX = nextY.get_node("RIGHT")
 		nextY = nextY.get_node("DOWN")
 		road_arr.append(row)
-	print(road_arr)
+	#print(road_arr)
 
 class blockOut:
 	var newMarker: Marker2D
@@ -48,6 +55,9 @@ func generate_colour(difficulty: int = 0):
 
 func generateBlock(prevMarker: Marker2D, generate_vertical: bool = false) -> blockOut:
 	var road_inst = road.instantiate()
+	road_inst.shopTuple = [shops_arr[shop_index], shops_arr[shop_index + 1]]
+	#print(shop_index)
+	shop_index += 2
 	add_child(road_inst)
 	road_inst.set_colour(generate_colour())
 	snap_to_marker(road_inst, "LEFT", prevMarker)

@@ -13,7 +13,7 @@ var standardUR = preload("res://Scenes/building_standard_ur.tscn")
 const MAX_NO_NPCS = 3
 const NO_MARKERS = 10
 
-
+var shopTuple
 
 # Possible difficulties: Red, Green, Yellow
 var type = "";
@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func spawn_npcs():
 	var num_npcs = randi() % (MAX_NO_NPCS + 1)
-	num_npcs = 10
+	#num_npcs = 10
 	var markers = range(10)
 	markers.shuffle()
 	#print(markers)
