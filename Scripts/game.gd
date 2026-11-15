@@ -6,6 +6,19 @@ func textboxEvent():
 	text.text = "Hello!"
 	$CanvasLayer/TextBox.enqueueText(text)
 	
+func butterflyEvent():
+	var text = Globals.TextDTO.new()
+	text.characterName = "butterfly"
+	text.text = "Begone! Butterflies only"
+	$CanvasLayer/TextBox.enqueueText(text)
+	
+func ghostEvent():
+	var text = Globals.TextDTO.new()
+	text.characterName = "ghoul"
+	text.text = "I will now read an excerpt from Dracula"
+	$CanvasLayer/TextBox.enqueueText(text)
+	text.text = 'I must say they were not cheering to me, for amongst them were "Ordog"--Satan, "Pokol"--hell, "stregoica"--witch, "vrolok" and "vlkoslak"--both mean the same thing, one being Slovak and the other Servian for something that is either werewolf or vampire.'
+	$CanvasLayer/TextBox.enqueueText(text)
 func plagueisEvent():
 	var text = Globals.TextDTO.new()
 	text.characterName = "Prince of Darkness"
@@ -38,8 +51,8 @@ func pumpkinEvent():
 	
 func petEvent():
 	var text = Globals.TextDTO.new()
-	text.characterName = "treat? You have treat???"
-	text.text = "Hello!"
+	text.characterName = "pet thing"
+	text.text = "treat? You have treat???"
 	$CanvasLayer/TextBox.enqueueText(text)
 
 func riddleEvent():
