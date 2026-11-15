@@ -94,7 +94,8 @@ func robotEvent():
 class _galactic_event_manager:
 	var _event_dict: Dictionary
 	var _event_weights: Array
-	var _galactic_events: Array[Dictionary]
+	#var _galactic_events: Array[Dictionary]
+	var galactic_event_log = []
 	var random
 	func _init():
 		_event_dict = {}
@@ -113,6 +114,32 @@ class _galactic_event_manager:
 	func choose_event():
 		var events = _event_dict.keys()
 		return _event_dict[events[random.rand_weighted(_event_weights)]]
+		
+	func log(name, npc_text):
+		self.galactic_event_log.append({
+			"name": name,
+			"npc_text": npc_text
+		})
+
+func start_galactic_timer():
+	galactic_timer.start(randf_range(5, 10))
+
+func galactic_event():
+	galactic_event_manager.choose_event()["func"].call()
+	start_galactic_timer()
+	
+
+func galactic_boom_event():
+	var target = Globals.currencies.values()[randi() % len(Globals.currencies.values())]
+	target.applyEventTriggeredRateChange(0.5)
+	galactic_event_manager.log(
+		"Galactic Boom In " + target.letters + " ,",
+		"Wow, it seems like " + target.name + " is really doing well these days!"
+	)
+	print(galactic_event_manager.galactic_event_log)
+	
+	
+	
 		
 	
 class _event_manager:
@@ -160,6 +187,7 @@ class _event_manager:
 		return _event_dict[events[random.rand_weighted(_event_weights)]]
 	
 var event_manager = _event_manager.new()
+var galactic_event_manager = _galactic_event_manager.new()
 var gameloop_timer = Timer.new()
 var galactic_timer = Timer.new()
 var day = 1
@@ -167,12 +195,8 @@ var week = 1
 
 func _dialogue_finished():
 	Globals.in_event = false
-
-func start_galactic_timer():
-	galactic_timer.start(randf_range(30, 180))
-
-func galactic_event():
-	pass
+	
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -194,7 +218,10 @@ func _ready() -> void:
 	event_manager.add_event("robot event", robotEvent, 1)
 	event_manager.add_event("Jack event", jackEvent, 1)
 	event_manager.add_event("Teleport Event", teleportEvent, 0.25)
+	#Galactic Events:
+	galactic_event_manager.add_event("Galactic Boom", galactic_boom_event, 1)
 	start_timer()
+	start_galactic_timer()
 	
 	
 	print(event_manager._event_dict, event_manager._event_weights)
