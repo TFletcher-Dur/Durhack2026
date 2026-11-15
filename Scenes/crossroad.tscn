@@ -7,17 +7,17 @@
 script = ExtResource("1_ot8dy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=443869084]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(9, 9)
 texture = ExtResource("2_ot8dy")
 
 [node name="UP" type="Marker2D" parent="." unique_id=863945741]
-position = Vector2(0, -40)
+position = Vector2(0, -144)
 
 [node name="DOWN" type="Marker2D" parent="." unique_id=204157728]
-position = Vector2(0, 40)
+position = Vector2(0, 144)
 
 [node name="LEFT" type="Marker2D" parent="." unique_id=179462912]
-position = Vector2(40, 0)
+position = Vector2(-144, 0)
 
 [node name="RIGHT" type="Marker2D" parent="." unique_id=598646651]
-position = Vector2(-40, 0)
+position = Vector2(144, 0)
