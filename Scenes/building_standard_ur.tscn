@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://vjw8p3h4pv3n" path="res://Assets/buliding_standard_UR.png" id="1_0rnfi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvbwm"]
-size = Vector2(719, 655)
+size = Vector2(719, 669)
 
 [node name="building_standard_UR" type="Node2D" unique_id=572680540]
 
@@ -16,5 +16,5 @@ texture = ExtResource("1_0rnfi")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1944576940]
-position = Vector2(-1.5, 31.5)
+position = Vector2(-1.5, 24.5)
 shape = SubResource("RectangleShape2D_cvbwm")
