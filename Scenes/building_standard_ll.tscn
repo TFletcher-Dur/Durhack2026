@@ -2,9 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://byedxtrn3atsm" path="res://Assets/building_standard_LL.png" id="1_l2fb6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2fb6"]
+size = Vector2(719, 719)
+
 [node name="building_standard_LL" type="Node2D" unique_id=572680540]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=667484215]
 texture_filter = 1
 scale = Vector2(6, 6)
 texture = ExtResource("1_l2fb6")
+
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=374024142]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1966480547]
+position = Vector2(-1.5, -0.5)
+shape = SubResource("RectangleShape2D_l2fb6")

@@ -3,6 +3,14 @@ extends Node2D
 const NPC_SCENES = [
 	preload("res://Scenes/npcs/test_npc.tscn")
 ]
+
+const BUILDINGSPAWNS = [
+	preload("res://Scenes/building_standard_ll.tscn"),
+	preload("res://Scenes/building_standard_lr.tscn"),
+	preload("res://Scenes/building_standard_ur.tscn"),
+	preload("res://Scenes/buliding_standard_ul.tscn")
+]
+
 const MAX_NO_NPCS = 3
 const NO_MARKERS = 10
 
@@ -14,6 +22,7 @@ var type = "";
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawn_npcs.call_deferred()
+	spawn_buildings.call_deferred()
 		
 
 func spawn_npcs():
@@ -33,6 +42,31 @@ func spawn_npcs():
 		if(rotation_degrees == 90):
 			npc.rotation_degrees = -90
 
+
+func spawn_buildings():
+	# get the spawns.
+	# pick buildings
+	# score!
+	
+	var spawnerLL = $buildingSpawnLL
+	var spawnerLR = $buildingSpawnLR
+	var spawnerUL = $buildingSpawnUL
+	var spawnerUR = $buildingSpawnUR
+	
+	# Spawner LL
+	if (rotation_degrees != 90):
+		var ll = BUILDINGSPAWNS[0].instantiate()
+		add_child(ll)
+		ll.global_position = spawnerLL.global_position
+		var lr = BUILDINGSPAWNS[1].instantiate()
+		add_child(lr)
+		lr.global_position = spawnerLR.global_position
+		var ul = BUILDINGSPAWNS[3].instantiate()
+		add_child(ul)
+		ul.global_position = spawnerUL.global_position
+		var ur = BUILDINGSPAWNS[2].instantiate()
+		add_child(ur)
+		ur.global_position = spawnerUR.global_position
 
 func set_colour(colour = "white") -> void:
 	if colour == "red":

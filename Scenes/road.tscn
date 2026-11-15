@@ -56,4 +56,16 @@ position = Vector2(623, 103)
 [node name="NPCSpawn0" type="Marker2D" parent="." unique_id=1990042400]
 position = Vector2(-622, 97)
 
+[node name="buildingSpawnLL" type="Marker2D" parent="." unique_id=1528206395]
+position = Vector2(-360, -504)
+
+[node name="buildingSpawnLR" type="Marker2D" parent="." unique_id=2003974388]
+position = Vector2(360, -504)
+
+[node name="buildingSpawnUL" type="Marker2D" parent="." unique_id=356426998]
+position = Vector2(-360, 504)
+
+[node name="buildingSpawnUR" type="Marker2D" parent="." unique_id=555033467]
+position = Vector2(360, 504)
+
 [connection signal="body_entered" from="playerCollision" to="." method="_on_player_collision_body_entered"]
