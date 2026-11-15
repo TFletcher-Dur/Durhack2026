@@ -69,6 +69,12 @@ func open(left: String, right: String):
 	$CurrencyLettersDisplay/CurrencyLettersDisplayText.text = leftCurrency.letters + " <=> " + rightCurrency.letters
 	show()
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_ESCAPE:
+			Globals.in_event = false
+			hide()
+		
 
 func _on_exit_button_pressed() -> void:
 	Globals.in_event = false

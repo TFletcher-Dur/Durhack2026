@@ -124,7 +124,7 @@ class _galactic_event_manager:
 			Globals.galactic_event_log.pop_front()
 
 func start_galactic_timer():
-	galactic_timer.start(randf_range(5, 10))
+	galactic_timer.start(randf_range(30, 180))
 
 func galactic_event():
 	galactic_event_manager.choose_event()["func"].call()
@@ -268,6 +268,16 @@ func progress_day():
 	$CanvasLayer/datecontrol/WeekLabel.text = "Week " + str(week)
 	if week <= 4:
 		start_timer()
+	else:
+		print("Total Score: " + str(sum_array(Globals.playerBalance.values())))
+		get_tree().quit()
+		
+
+static func sum_array(array):
+	var sum = 0.0
+	for element in array:
+		sum += element
+	return sum
 
 func teleportEvent():
 	var targetPosX = 0 + ((randi() % 5) * (1440 + 288))
