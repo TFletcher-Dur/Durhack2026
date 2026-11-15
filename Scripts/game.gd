@@ -6,6 +6,12 @@ func textboxEvent():
 	text.text = "Hello!"
 	$CanvasLayer/TextBox.enqueueText(text)
 	
+func jackEvent():
+	var text = Globals.TextDTO.new()
+	text.characterName = "Jack"
+	text.text = "Boo!"
+	$CanvasLayer/TextBox.enqueueText(text)
+	
 func butterflyEvent():
 	var text = Globals.TextDTO.new()
 	text.characterName = "butterfly"
@@ -124,6 +130,19 @@ func _ready() -> void:
 	Globals.player_detected_in_road.connect(_on_player_detected)
 	Globals.dialogue_finished.connect(_dialogue_finished)
 	event_manager.add_event("test event", textboxEvent, 1)
+	event_manager.add_event("butterfly dialogue", butterflyEvent, 1)
+	event_manager.add_event("ghoul dialogue", ghostEvent, 1)
+	event_manager.add_even("Plagueis dialogue",plagueisEvent,0.1 )
+	event_manager.add_even("Old John event",timeEvent,1 )
+	event_manager.add_even("Jim event", trespassingEvent, 1)
+	event_manager.add_even("pumpkin event", pumpkinEvent, 1)
+	event_manager.add_even("pet event", petEvent, 1)
+	event_manager.add_event("Danny's riddle event", riddleEvent, 1)
+	event_manager.add_event("robot event", robotEvent, 1)
+	event_manager.add_event("Jack event", jackEvent, 1)
+	
+	
+	
 	print(event_manager._event_dict, event_manager._event_weights)
 
 func _on_player_detected(type: String) -> void:
