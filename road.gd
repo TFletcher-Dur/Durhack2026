@@ -30,12 +30,12 @@ func spawn_npcs():
 	num_npcs = 10
 	var markers = range(10)
 	markers.shuffle()
-	print(markers)
+	#print(markers)
 	for i in range(num_npcs):
 		var npc = NPC_SCENES[randi() % len(NPC_SCENES)].instantiate()
-		print("NPCSpawn" + str(markers[0] + 1))
+		#print("NPCSpawn" + str(markers[0] + 1))
 		var marker = get_node("NPCSpawn" + str(markers[0]))
-		print(marker)
+		#print(marker)
 		markers.pop_front()
 		add_child(npc)
 		npc.global_position = marker.global_position

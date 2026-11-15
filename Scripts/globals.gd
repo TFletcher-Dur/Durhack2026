@@ -23,12 +23,18 @@ var playerBalance = {
 	"SGX": 2_938
 }
 
+"""
 var currencies = {
 	"SGX": Currency.new("SGXTRADING", "SGX", 1),
 	"ABA": Currency.new(),
 	"DEF": Currency.new("DEFENGAOIS", "DEF", 1.7),
 	"GBA": Currency.new("GAMEBOYADVANCE", "GBA", 20.56)
 }
+"""
+const NUM_CURRENCIES = 8
+const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var LOWERCASE_ALPHABET = ALPHABET.to_lower() #This is a constant.
+var currencies = {}
 
 
 class Currency:
@@ -86,7 +92,13 @@ class BaseCurrency extends Currency:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for i in range(NUM_CURRENCIES):
+		var letters = ""
+		for j in range(3):
+			letters += ALPHABET[randi() % len(ALPHABET)]
+		var name = letters[0] + random_sequence(1) + letters[1] + random_sequence(2) + letters[2] + random_sequence(5)
+		#print(name + "   " + letters)
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -98,3 +110,10 @@ func _process(delta: float) -> void:
 			currency.applyRandomNoise()
 			#if currency.letters == "ABA":
 			#	print(currency.rate)
+
+
+func random_sequence(max_length):
+	var sequence = ""
+	for i in range(randi() % (max_length + 1)):
+		sequence += LOWERCASE_ALPHABET[randi() % len(LOWERCASE_ALPHABET)]
+	return sequence
