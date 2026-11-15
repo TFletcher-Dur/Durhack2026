@@ -1,7 +1,7 @@
 extends Node
 
 var player_in_area = false
-
+var npc_name = "Gertrude"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("interact") and not Globals.in_event and player_in_area):
 		var textDTO = Globals.TextDTO.new()
-		textDTO.characterName = "Bob"
+		textDTO.characterName = npc_name
 		textDTO.text = "Hello."
 		Globals.dialogue_append.emit(textDTO)
 		Globals.dialogue_finished.connect(on_dialogue_finished)
@@ -21,6 +21,11 @@ func on_dialogue_finished():
 	Globals.in_event = false
 	Globals.dialogue_finished.disconnect(on_dialogue_finished)
 
+func set_sprite(sprite_text: Texture):
+	$Sprite2D.texture = sprite_text
+	
+func set_npc_name(name: String):
+	npc_name = name
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

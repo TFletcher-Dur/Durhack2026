@@ -22,8 +22,48 @@ var type = "";
 func _ready() -> void:
 	spawn_npcs.call_deferred()
 	spawn_buildings.call_deferred()
-		
 
+
+const COMMON_NAMES: Array[String] = [
+	"James", "Mary", "Michael", "Patricia", "Robert",
+	"Jennifer", "John", "Linda", "David", "Elizabeth",
+	"William", "Barbara", "Richard", "Susan", "Joseph",
+	"Jessica", "Thomas", "Sarah", "Christopher", "Karen",
+	"Charles", "Lisa", "Daniel", "Nancy", "Matthew",
+	"Betty", "Anthony", "Sandra", "Mark", "Margaret",
+	"Donald", "Ashley", "Steven", "Kimberly", "Andrew",
+	"Emily", "Paul", "Donna", "Joshua", "Michelle",
+	"Kenneth", "Carol", "Kevin", "Amanda", "Brian",
+	"Melissa", "George", "Deborah", "Timothy", "Stephanie",
+	"Ronald", "Dorothy", "Jason", "Rebecca", "Edward",
+	"Sharon", "Jeffrey", "Laura", "Ryan", "Cynthia",
+	"Jacob", "Amy", "Gary", "Kathleen", "Nicholas",
+	"Angela", "Eric", "Shirley", "Jonathan", "Brenda",
+	"Stephen", "Emma", "Larry", "Anna", "Justin",
+	"Pamela", "Scott", "Nicole", "Brandon", "Samantha",
+	"Benjamin", "Katherine", "Samuel", "Christine", "Gregory",
+	"Helen", "Alexander", "Debra", "Patrick", "Rachel",
+	"Frank", "Carolyn", "Raymond", "Janet", "Jack",
+	"Maria", "Dennis", "Heather", "Jerry", "Diane", 
+	"Carrot", "Sam the Butcher", "Cousin Oliver", "President",
+	"Jim", "Jimmybob", "Mclauren", "asdf", "yes", "Danny Devito"
+]
+
+const SPRITES = [
+	preload("res://Assets/npc_1.png"),
+	preload("res://Assets/npc_2.png"),
+	preload("res://Assets/npc_3.png"),
+	preload("res://Assets/npc_4.png"),
+	preload("res://Assets/npc_5.png"),
+	preload("res://Assets/npc_6.png"),
+	preload("res://Assets/npc_7.png"),
+	preload("res://Assets/npc_8.png"),
+	preload("res://Assets/npc_10.png")
+]
+
+func get_random_name() -> String:
+	return COMMON_NAMES.pick_random()
+	
 func spawn_npcs():
 	var num_npcs = randi() % (MAX_NO_NPCS + 1)
 	#num_npcs = 10
@@ -32,6 +72,8 @@ func spawn_npcs():
 	#print(markers)
 	for i in range(num_npcs):
 		var npc = NPC_SCENES[randi() % len(NPC_SCENES)].instantiate()
+		npc.set_npc_name(get_random_name())
+		npc.set_sprite(SPRITES.pick_random())
 		#print("NPCSpawn" + str(markers[0] + 1))
 		var marker = get_node("NPCSpawn" + str(markers[0]))
 		#print(marker)

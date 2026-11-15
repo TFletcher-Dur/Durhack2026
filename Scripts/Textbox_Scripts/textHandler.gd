@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 			show()
 			isShowingText = true
 	if (isShowingText):
+		$TextBoxBackground/CharacterNameText.text = currentTextDTO.characterName
 		timeSincePreviousChar += delta
 		if (Input.is_action_just_pressed("interact")):
 			timeSincePreviousChar = 0.0 #This means that the player resets the scroll timer every frame when the text is unskippable!
