@@ -20,6 +20,7 @@ func build_grid(n: int = 5):
 		# generate columns for row
 		# generate next cross and update next var
 		var row = []
+		var exchange = []
 		var new = null
 		if i < n - 1:
 			new = addVerticalRoad(nextY)
@@ -37,6 +38,7 @@ func build_grid(n: int = 5):
 		nextY = nextY.get_node("DOWN")
 		road_arr.append(row)
 	print(road_arr)
+
 class blockOut:
 	var newMarker: Marker2D
 	var roadInst: Node2D

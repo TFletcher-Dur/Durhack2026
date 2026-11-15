@@ -6,6 +6,10 @@ func _ready() -> void:
 
 func set_text(text: String):
 	$ExchangeText.text = text
+	
+func set_modulation(color: Color):
+	$Sprite2D.modulate = color
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

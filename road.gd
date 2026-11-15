@@ -4,12 +4,11 @@ const NPC_SCENES = [
 	preload("res://Scenes/npcs/test_npc.tscn")
 ]
 
-const BUILDINGSPAWNS = [
-	preload("res://Scenes/building_standard_ll.tscn"),
-	preload("res://Scenes/building_exchange_lr.tscn"),
-	preload("res://Scenes/building_standard_ur.tscn"),
-	preload("res://Scenes/buliding_standard_ul.tscn")
-]
+var standardLL = preload("res://Scenes/building_standard_ll.tscn")
+var standardLR = preload("res://Scenes/building_exchange_lr.tscn")
+var standardUL = preload("res://Scenes/buliding_standard_ul.tscn")
+var exchangeLR = preload("res://Scenes/building_exchange_lr.tscn")
+var standardUR = preload("res://Scenes/building_standard_ur.tscn")
 
 const MAX_NO_NPCS = 3
 const NO_MARKERS = 10
@@ -47,26 +46,13 @@ func spawn_buildings():
 	# get the spawns.
 	# pick buildings
 	# score!
-	
-	var spawnerLL = $buildingSpawnLL
-	var spawnerLR = $buildingSpawnLR
-	var spawnerUL = $buildingSpawnUL
-	var spawnerUR = $buildingSpawnUR
+	var SPAWNERS = [$buildingSpawnLL, $buildingSpawnLR, $buildingSpawnUL, $buildingSpawnUR]
 	
 	# Spawner LL
 	if (rotation_degrees != 90):
-		var ll = BUILDINGSPAWNS[0].instantiate()
-		add_child(ll)
-		ll.global_position = spawnerLL.global_position
-		var lr = BUILDINGSPAWNS[1].instantiate()
-		add_child(lr)
-		lr.global_position = spawnerLR.global_position
-		var ul = BUILDINGSPAWNS[3].instantiate()
-		add_child(ul)
-		ul.global_position = spawnerUL.global_position
-		var ur = BUILDINGSPAWNS[2].instantiate()
-		add_child(ur)
-		ur.global_position = spawnerUR.global_position
+		for spawner in SPAWNERS:
+			# random number generator - 
+			pass
 
 func set_colour(colour = "white") -> void:
 	if colour == "red":
