@@ -116,7 +116,7 @@ class _galactic_event_manager:
 		return _event_dict[events[random.rand_weighted(_event_weights)]]
 		
 	func log(name, npc_text):
-		self.galactic_event_log.append({
+		Globals.galactic_event_log.append({
 			"name": name,
 			"npc_text": npc_text
 		})
@@ -136,7 +136,7 @@ func galactic_boom_event():
 		"Galactic Boom In " + target.letters + " ,",
 		"Wow, it seems like " + target.name + " is really doing well these days!"
 	)
-	print(galactic_event_manager.galactic_event_log)
+	#print(Globals.galactic_event_log)
 	
 	
 	

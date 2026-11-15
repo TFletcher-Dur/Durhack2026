@@ -1,7 +1,8 @@
 extends Node2D
 
 const NPC_SCENES = [
-	preload("res://Scenes/npcs/test_npc.tscn")
+	preload("res://Scenes/npcs/test_npc.tscn"),
+	preload("res://Scenes/npcs/news_report_npc.tscn")
 ]
 
 var standardLL = preload("res://Scenes/building_standard_ll.tscn")

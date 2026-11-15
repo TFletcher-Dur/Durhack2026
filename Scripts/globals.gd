@@ -10,6 +10,8 @@ const _TIME_BETWEEN_RANDOM_NOISE_APPLICATIONS = 0.5 #s
 var in_event = false
 var _timeSincePreviousRandomNoiseApplication = 0.0 #Private used in random noise application timing.
 
+var galactic_event_log = []
+
 class TextDTO:
 	var characterName
 	var text

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cpfypiqsqxnlv"]
+
+[ext_resource type="Script" uid="uid://34032qonbvl8" path="res://Scripts/NPCs/news_report_npc.gd" id="1_01m43"]
+[ext_resource type="Texture2D" uid="uid://cjpsoyswjt7h7" path="res://Assets/player_move_down1.png" id="2_7d8q5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2q8q"]
+size = Vector2(76.000015, 58.000015)
+
+[node name="NewsReportNpc" type="StaticBody2D" unique_id=145786182]
+collision_layer = 2
+script = ExtResource("1_01m43")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=935629839]
+texture_filter = 1
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("2_7d8q5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=153156796]
+position = Vector2(-4.000001, 29)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_e2q8q")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1418203582]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2132632398]
+position = Vector2(-4.000001, 29)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_e2q8q")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
