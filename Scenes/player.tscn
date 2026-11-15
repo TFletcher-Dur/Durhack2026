@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://b46rje84rq27m" path="res://Assets/player_move_up3.png" id="17_83xs0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2glv"]
-size = Vector2(129, 128)
+size = Vector2(151.40002, 112.000015)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w2glv"]
 animations = [{
@@ -125,16 +125,18 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=391478453 groups=["Player"]]
+scale = Vector2(5, 5)
 collision_mask = 2
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1825464600]
-position = Vector2(-0.5, 0)
+position = Vector2(7.0999975, 58.79999)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_w2glv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1273590286]
 texture_filter = 1
-scale = Vector2(5, 5)
+scale = Vector2(7.5, 7.5)
 sprite_frames = SubResource("SpriteFrames_w2glv")
 animation = &"idle_up"
 
