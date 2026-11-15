@@ -1,5 +1,6 @@
 extends Node2D
 
+
 func textboxEvent():
 	var text = Globals.TextDTO.new()
 	text.characterName = "NO one"
@@ -89,15 +90,39 @@ func robotEvent():
 	$CanvasLayer/TextBox.enqueueText(text)
 	text.isSkippable = false
 
-	
 
-class _event_manager:
+class _galactic_event_manager:
 	var _event_dict: Dictionary
-	var _current_event: Callable
 	var _event_weights: Array
+	var _galactic_events: Array[Dictionary]
+	var random
 	func _init():
 		_event_dict = {}
 		_event_weights = []
+		random = RandomNumberGenerator.new()
+
+	func add_event(name: String, function: Callable, weight: float):
+			var last_event_id = _event_dict.keys()[-1] if len(_event_dict.keys()) != 0 else 1
+			
+			_event_dict[last_event_id + 1] = {
+				"name": name,
+				"func": function
+			}
+			_event_weights.append(weight)
+			
+	func choose_event():
+		var events = _event_dict.keys()
+		return _event_dict[events[random.rand_weighted(_event_weights)]]
+		
+	
+class _event_manager:
+	var _event_dict: Dictionary
+	var _event_weights: Array
+	var random
+	func _init():
+		_event_dict = {}
+		_event_weights = []
+		random = RandomNumberGenerator.new()
 		
 	func running_event(road_type: String = "white") -> bool:
 		# if road_Type is yellow, check prob. if red, ALWAYS run an event. if green, never run an event*
@@ -131,17 +156,30 @@ class _event_manager:
 		_event_weights.append(weight)
 	
 	func choose_event():
-		var random = RandomNumberGenerator.new()
 		var events = _event_dict.keys()
 		return _event_dict[events[random.rand_weighted(_event_weights)]]
 	
 var event_manager = _event_manager.new()
+var gameloop_timer = Timer.new()
+var galactic_timer = Timer.new()
+var day = 1
+var week = 1
 
 func _dialogue_finished():
 	Globals.in_event = false
 
+func start_galactic_timer():
+	galactic_timer.start(randf_range(30, 180))
+
+func galactic_event():
+	pass
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_child(gameloop_timer)
+	add_child(galactic_timer)
+	gameloop_timer.timeout.connect(progress_day)
+	galactic_timer.timeout.connect(galactic_event)
 	Globals.player_detected_in_road.connect(_on_player_detected)
 	Globals.dialogue_finished.connect(_dialogue_finished)
 	event_manager.add_event("test event", textboxEvent, 1)
@@ -155,7 +193,8 @@ func _ready() -> void:
 	event_manager.add_event("Danny's riddle event", riddleEvent, 1)
 	event_manager.add_event("robot event", robotEvent, 1)
 	event_manager.add_event("Jack event", jackEvent, 1)
-	
+	event_manager.add_event("Teleport Event", teleportEvent, 0.25)
+	start_timer()
 	
 	
 	print(event_manager._event_dict, event_manager._event_weights)
@@ -168,6 +207,23 @@ func _process(delta: float) -> void:
 	pass
 
 
+# call function that initiates timer
+# timer timeout
+# On timer timeout, progress day.
+# When day reaches 7, do something funky idk.
+
+func start_timer():
+	gameloop_timer.start(5)
+
+func progress_day():
+	day += 1
+	if day > 7:
+		week += 1
+		day = 1
+	print(day)
+	print(week)
+	if week <= 4:
+		start_timer()
 
 func teleportEvent():
 	var targetPosX = 0 + ((randi() % 5) * (1440 + 288))
