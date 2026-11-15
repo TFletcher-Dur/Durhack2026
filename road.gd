@@ -30,6 +30,8 @@ func spawn_npcs():
 		markers.pop_front()
 		add_child(npc)
 		npc.global_position = marker.global_position
+		if(rotation_degrees == 90):
+			npc.rotation_degrees = -90
 
 
 func set_colour(colour = "white") -> void:
