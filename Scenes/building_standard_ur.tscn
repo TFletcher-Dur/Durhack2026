@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://8oo4f013qxmr"]
+
+[ext_resource type="Texture2D" uid="uid://vjw8p3h4pv3n" path="res://Assets/buliding_standard_UR.png" id="1_0rnfi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvbwm"]
+size = Vector2(719, 655)
+
+[node name="building_standard_UR" type="Node2D" unique_id=572680540]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=667484215]
+texture_filter = 1
+scale = Vector2(6, 6)
+texture = ExtResource("1_0rnfi")
+
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=1642361702]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1944576940]
+position = Vector2(-1.5, 31.5)
+shape = SubResource("RectangleShape2D_cvbwm")

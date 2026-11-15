@@ -2,13 +2,20 @@
 
 [ext_resource type="Script" uid="uid://blx7ludah8ff3" path="res://road.gd" id="1_b51y2"]
 [ext_resource type="Texture2D" uid="uid://l3q82do4yggg" path="res://Assets/temp_road.png" id="2_b51y2"]
+[ext_resource type="PackedScene" uid="uid://c6vfj33tb7ik7" path="res://Scenes/buliding_standard_ul.tscn" id="3_onwkh"]
+[ext_resource type="PackedScene" uid="uid://8oo4f013qxmr" path="res://Scenes/building_standard_ur.tscn" id="4_bnceb"]
+[ext_resource type="PackedScene" uid="uid://3y2kocpbibdp" path="res://Scenes/building_standard_lr.tscn" id="5_6bhbo"]
+[ext_resource type="PackedScene" uid="uid://csjfj6irvqv2s" path="res://Scenes/building_standard_ll.tscn" id="6_fycqo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvbwm"]
+size = Vector2(100, 302)
 
 [node name="road" type="Node2D" unique_id=105561522]
 script = ExtResource("1_b51y2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=443869084]
 rotation = 1.5707964
-scale = Vector2(9, 6)
+scale = Vector2(6, 6)
 texture = ExtResource("2_b51y2")
 
 [node name="RIGHT" type="Marker2D" parent="." unique_id=315867320]
@@ -16,6 +23,24 @@ position = Vector2(720, 0)
 
 [node name="LEFT" type="Marker2D" parent="." unique_id=641859407]
 position = Vector2(-720, 0)
+
+[node name="playerCollision" type="Area2D" parent="." unique_id=753197965]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerCollision" unique_id=952943776]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_cvbwm")
+
+[node name="buliding_standard_UL" parent="." unique_id=149789852 instance=ExtResource("3_onwkh")]
+position = Vector2(-360, 504)
+
+[node name="building_standard_UR" parent="." unique_id=572680540 instance=ExtResource("4_bnceb")]
+position = Vector2(360, 504)
+
+[node name="building_standard_LR" parent="." unique_id=700601175 instance=ExtResource("5_6bhbo")]
+position = Vector2(360, -504)
+
+[node name="building_standard_LL" parent="." unique_id=163425674 instance=ExtResource("6_fycqo")]
+position = Vector2(-360, -504)
 
 [node name="NPCSpawn1" type="Marker2D" parent="." unique_id=1669078188]
 position = Vector2(-448, -116)
@@ -46,3 +71,5 @@ position = Vector2(623, 103)
 
 [node name="NPCSpawn0" type="Marker2D" parent="." unique_id=1990042400]
 position = Vector2(-622, 97)
+
+[connection signal="body_entered" from="playerCollision" to="." method="_on_player_collision_body_entered"]

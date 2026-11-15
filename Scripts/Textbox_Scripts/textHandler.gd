@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 					currentTextDTO = null
 					positionInCurrentText = -1
 					isShowingText = false
+					Globals.dialogue_finished.emit()
 					hide()
 		else:
 			while (

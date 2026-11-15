@@ -34,15 +34,24 @@ func spawn_npcs():
 
 func set_colour(colour = "white") -> void:
 	if colour == "red":
+		type = "red"
 		$Sprite2D.modulate = Color(1.0, 0.0, 0.0, 1.0)
 	elif colour == "yellow":
+		type = "yellow"
 		$Sprite2D.modulate = Color(0.726, 0.474, 0.05, 1.0)
 	elif colour == "green":
+		type = "green"
 		$Sprite2D.modulate = Color(0.358, 0.646, 0.0, 1.0)
 	else:
+		type = "white"
 		$Sprite2D.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_player_collision_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		Globals.player_detected_in_road.emit(type)

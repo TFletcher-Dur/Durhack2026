@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://3y2kocpbibdp"]
+
+[ext_resource type="Texture2D" uid="uid://b54gm03asy7vm" path="res://Assets/building_standard_LR.png" id="1_i3yuc"]
+
+[node name="building_standard_LR" type="Node2D" unique_id=572680540]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=667484215]
+texture_filter = 1
+scale = Vector2(6, 6)
+texture = ExtResource("1_i3yuc")

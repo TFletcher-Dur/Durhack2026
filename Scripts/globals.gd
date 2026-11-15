@@ -1,8 +1,11 @@
 extends Node
 
+signal player_detected_in_road(road_colour: String)
+signal dialogue_finished()
+
 const DEFAULT_RANDOM_NOISE_MAGNITUDE = 0.005
 const _TIME_BETWEEN_RANDOM_NOISE_APPLICATIONS = 0.5 #s
-
+var in_event = false
 var _timeSincePreviousRandomNoiseApplication = 0.0 #Private used in random noise application timing.
 
 class TextDTO:
