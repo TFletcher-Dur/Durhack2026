@@ -15,10 +15,15 @@ var shops_arr = []
 var color_arr = ["red", "green", "yellow"]
 func build_grid(n: int = 5):
 	var num_shops = (Globals.NUM_CURRENCIES * (Globals.NUM_CURRENCIES - 1)) / 2
-	for i in range(num_shops): shops_arr.append(1)
-	for i in range(((n ** 2) * 2) - num_shops): shops_arr.append(0)
+	#for i in range(num_shops): shops_arr.append(1)
+	#for i in range(((n ** 2) * 2) - num_shops): shops_arr.append(0)
+	var currencyNames = Globals.currencies.keys()
+	for i in range(len(currencyNames)):
+		for j in range(i+1, len(currencyNames)):
+			shops_arr.append([currencyNames[i], currencyNames[j]])
+	for i in range(((n ** 2) * 2) - num_shops): shops_arr.append(null)
 	shops_arr.shuffle()
-	print(shops_arr)
+	#print(len(shops_arr))
 	#print(len(shops_arr))
 	var cross = $crossroad
 	var nextX = cross.get_node("RIGHT")
