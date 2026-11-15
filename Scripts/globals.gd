@@ -15,13 +15,15 @@ class TextDTO:
 	var textScrollSpeed = 0.015 #characters per second.
 	var isSkippable = true
 	
-	
+
+"""
 var playerBalance = {
 	"ABC": 1_000_000,
 	"DEF": 1_000,
 	"GBA": 100,
 	"SGX": 2_938
 }
+"""
 
 """
 var currencies = {
@@ -36,6 +38,9 @@ const NUM_CURRENCY_RANDOMISATION_STEPS = 100
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var LOWERCASE_ALPHABET = ALPHABET.to_lower() #This is a constant.
 var currencies = {}
+
+const PLAYER_STARTING_BALANCE = 100
+var playerBalance = {}
 
 
 class Currency:
@@ -106,6 +111,8 @@ func _ready() -> void:
 	for i in range(NUM_CURRENCY_RANDOMISATION_STEPS):
 		for currency in currencies.values():
 			currency.applyRandomNoise()
+	for currency in currencies:
+		playerBalance[currency] = PLAYER_STARTING_BALANCE
 	#for currency in currencies.values():
 	#	print(currency.letters, " ", currency.rate)
 	
