@@ -133,16 +133,21 @@ func galactic_event():
 
 func galactic_boom_event():
 	var target = Globals.currencies.values()[randi() % len(Globals.currencies.values())]
-	target.applyEventTriggeredRateChange(0.5)
+	target.applyEventTriggeredRateChange(-0.5)
 	galactic_event_manager.log(
 		"Galactic Boom In " + target.letters + " ,",
 		"Wow, it seems like " + target.name + " is really doing well these days!"
 	)
 	#print(Globals.galactic_event_log)
 	
+func galactic_crash_event():
+	var target = Globals.currencies.values()[randi() % len(Globals.currencies.values())]
+	target.applyEventTriggeredRateChange(0.5)
+	galactic_event_manager.log(
+		"Galactic Crash In " + target.letters + " ,",
+		"Did you hear the news about " + target.name + "? What a dramatic fall from grace!"
+	)
 	
-	
-		
 	
 class _event_manager:
 	var _event_dict: Dictionary
@@ -224,6 +229,7 @@ func _ready() -> void:
 	event_manager.add_event("Teleport Event", teleportEvent, 0.25)
 	#Galactic Events:
 	galactic_event_manager.add_event("Galactic Boom", galactic_boom_event, 1)
+	galactic_event_manager.add_event("Galactic Crash", galactic_crash_event, 100000)
 	start_timer()
 	start_galactic_timer()
 	
