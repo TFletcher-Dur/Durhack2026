@@ -10,7 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (Input.is_action_just_pressed("interact") and not Globals.in_event):
+	if (Input.is_action_just_pressed("interact") and not Globals.in_event and player_in_area):
 		var textDTO = Globals.TextDTO.new()
 		textDTO.characterName = "Bob"
 		textDTO.text = "Hello."
@@ -23,7 +23,8 @@ func on_dialogue_finished():
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	player_in_area = true
+	if body.is_in_group("Player"):
+		player_in_area = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
