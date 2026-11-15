@@ -1,10 +1,8 @@
 [gd_scene format=3 uid="uid://csa0emuvp5y75"]
 
-[ext_resource type="Script" uid="uid://blx7ludah8ff3" path="res://road.gd" id="1_ot8dy"]
 [ext_resource type="Texture2D" uid="uid://bpeuth2488i5p" path="res://Assets/temp_crossroad.png" id="2_ot8dy"]
 
 [node name="crossroad" type="Node2D" unique_id=105561522]
-script = ExtResource("1_ot8dy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=443869084]
 scale = Vector2(9, 9)

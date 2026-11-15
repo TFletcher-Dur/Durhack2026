@@ -44,5 +44,5 @@ position = Vector2(515, 46)
 [node name="NPCSpawn9" type="Marker2D" parent="." unique_id=1020801656]
 position = Vector2(623, 103)
 
-[node name="NPCSpawn10" type="Marker2D" parent="." unique_id=1990042400]
+[node name="NPCSpawn0" type="Marker2D" parent="." unique_id=1990042400]
 position = Vector2(-622, 97)
