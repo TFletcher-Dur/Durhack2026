@@ -42,6 +42,7 @@ class Currency:
 	var name = "ABACUS"
 	var letters = "ABA"
 	var rate = 1.0
+	var instability = DEFAULT_RANDOM_NOISE_MAGNITUDE
 	
 	func _init(name="ABACUS", letters="ABA", rate=1.0):
 		self.name = name
@@ -53,7 +54,7 @@ class Currency:
 		value *= other.rate
 		return value
 		
-	func applyRandomNoise(magnitude=DEFAULT_RANDOM_NOISE_MAGNITUDE):
+	func applyRandomNoise(magnitude=self.instability):
 		var noise = randfn(0.0, magnitude)
 		self.rate += noise
 		if self.rate < 0: self.rate = 0
