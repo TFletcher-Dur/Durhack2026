@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://cvijn8lnp68cu"]
 
+[ext_resource type="PackedScene" uid="uid://bj2w0cq8hw1nh" path="res://Scenes/textbox.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://c71cgmrtwssjb" path="res://Scenes/grid_manager.tscn" id="1_qxrlw"]
+[ext_resource type="Script" uid="uid://buux6ow65kv8v" path="res://Scripts/game.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://b54doehfriycc" path="res://Scenes/player.tscn" id="2_wrm1d"]
 
 [node name="Game" type="Node2D" unique_id=1777474369]
+script = ExtResource("1_wrm1d")
 
 [node name="grid_manager" parent="." unique_id=1151319543 instance=ExtResource("1_qxrlw")]
 position = Vector2(39, 41)
@@ -11,3 +14,7 @@ position = Vector2(39, 41)
 [node name="CharacterBody2D" parent="." unique_id=391478453 instance=ExtResource("2_wrm1d")]
 position = Vector2(41, 40)
 scale = Vector2(0.5, 0.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1365565449]
+
+[node name="TextBox" parent="CanvasLayer" unique_id=1045537791 instance=ExtResource("1_ebmjs")]
