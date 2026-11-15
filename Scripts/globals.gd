@@ -105,8 +105,8 @@ func _ready() -> void:
 	for i in range(NUM_CURRENCY_RANDOMISATION_STEPS):
 		for currency in currencies.values():
 			currency.applyRandomNoise()
-	for currency in currencies.values():
-		print(currency.letters, " ", currency.rate)
+	#for currency in currencies.values():
+	#	print(currency.letters, " ", currency.rate)
 	
 		
 
@@ -120,8 +120,8 @@ func _process(delta: float) -> void:
 			currency.applyRandomNoise()
 			#if currency.letters == "ABA":
 			#	print(currency.rate)
-		for currency in currencies.values():
-			print(currency.letters, " ", currency.rate)
+		#for currency in currencies.values():
+		#	print(currency.letters, " ", currency.rate)
 
 
 func random_sequence(max_length):
