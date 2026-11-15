@@ -125,7 +125,6 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=391478453 groups=["Player"]]
-scale = Vector2(5, 5)
 collision_mask = 2
 script = ExtResource("1_cvnsp")
 

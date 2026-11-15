@@ -2,6 +2,7 @@ extends Node
 
 signal player_detected_in_road(road_colour: String)
 signal dialogue_finished()
+signal dialogue_append(text: TextDTO)
 
 const DEFAULT_RANDOM_NOISE_MAGNITUDE = 0.005
 const _TIME_BETWEEN_RANDOM_NOISE_APPLICATIONS = 0.5 #s

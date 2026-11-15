@@ -12,7 +12,7 @@ var timeSincePreviousChar = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	Globals.dialogue_append.connect(onEnqueueTextSignal)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -55,6 +55,10 @@ func _process(delta: float) -> void:
 				
 
 func enqueueText(textDTO):
+	textQueue.append(textDTO)
+	
+func onEnqueueTextSignal(textDTO):
+	Globals.in_event = true
 	textQueue.append(textDTO)
 	
 func clearQueue():
