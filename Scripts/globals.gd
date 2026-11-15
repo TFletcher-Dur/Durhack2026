@@ -32,6 +32,7 @@ var currencies = {
 }
 """
 const NUM_CURRENCIES = 8
+const NUM_CURRENCY_RANDOMISATION_STEPS = 100
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var LOWERCASE_ALPHABET = ALPHABET.to_lower() #This is a constant.
 var currencies = {}
@@ -92,12 +93,21 @@ class BaseCurrency extends Currency:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in range(NUM_CURRENCIES):
+	while len(currencies.keys()) < NUM_CURRENCIES:
 		var letters = ""
 		for j in range(3):
 			letters += ALPHABET[randi() % len(ALPHABET)]
+		if letters in currencies:
+			continue
 		var name = letters[0] + random_sequence(1) + letters[1] + random_sequence(2) + letters[2] + random_sequence(5)
 		#print(name + "   " + letters)
+		currencies[letters] = Currency.new(name, letters)
+	for i in range(NUM_CURRENCY_RANDOMISATION_STEPS):
+		for currency in currencies.values():
+			currency.applyRandomNoise()
+	for currency in currencies.values():
+		print(currency.letters, " ", currency.rate)
+	
 		
 
 
@@ -110,6 +120,8 @@ func _process(delta: float) -> void:
 			currency.applyRandomNoise()
 			#if currency.letters == "ABA":
 			#	print(currency.rate)
+		for currency in currencies.values():
+			print(currency.letters, " ", currency.rate)
 
 
 func random_sequence(max_length):
