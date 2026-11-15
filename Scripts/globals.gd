@@ -1,5 +1,10 @@
 extends Node
 
+const DEFAULT_RANDOM_NOISE_MAGNITUDE = 0.005
+const _TIME_BETWEEN_RANDOM_NOISE_APPLICATIONS = 0.5 #s
+
+var _timeSincePreviousRandomNoiseApplication = 0.0 #Private used in random noise application timing.
+
 class TextDTO:
 	var characterName
 	var text
@@ -37,7 +42,7 @@ class Currency:
 		value *= other.rate
 		return value
 		
-	func applyRandomNoise(magnitude=0.1):
+	func applyRandomNoise(magnitude=DEFAULT_RANDOM_NOISE_MAGNITUDE):
 		var noise = randfn(0.0, magnitude)
 		self.rate += noise
 		if self.rate < 0: self.rate = 0
@@ -82,4 +87,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	_timeSincePreviousRandomNoiseApplication += delta
+	while _timeSincePreviousRandomNoiseApplication >= _TIME_BETWEEN_RANDOM_NOISE_APPLICATIONS:
+		_timeSincePreviousRandomNoiseApplication -= _TIME_BETWEEN_RANDOM_NOISE_APPLICATIONS
+		for currency in currencies.values():
+			currency.applyRandomNoise()
+			#if currency.letters == "ABA":
+			#	print(currency.rate)
