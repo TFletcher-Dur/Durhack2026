@@ -6,7 +6,7 @@ const NPC_SCENES = [
 
 const BUILDINGSPAWNS = [
 	preload("res://Scenes/building_standard_ll.tscn"),
-	preload("res://Scenes/building_standard_lr.tscn"),
+	preload("res://Scenes/building_exchange_lr.tscn"),
 	preload("res://Scenes/building_standard_ur.tscn"),
 	preload("res://Scenes/buliding_standard_ul.tscn")
 ]
