@@ -16,3 +16,33 @@ position = Vector2(720, 0)
 
 [node name="LEFT" type="Marker2D" parent="." unique_id=641859407]
 position = Vector2(-720, 0)
+
+[node name="NPCSpawn1" type="Marker2D" parent="." unique_id=1669078188]
+position = Vector2(-448, -116)
+
+[node name="NPCSpawn2" type="Marker2D" parent="." unique_id=1518761791]
+position = Vector2(-393, 100)
+
+[node name="NPCSpawn3" type="Marker2D" parent="." unique_id=1910016120]
+position = Vector2(-156, -99)
+
+[node name="NPCSpawn4" type="Marker2D" parent="." unique_id=435313317]
+position = Vector2(-312, -84)
+
+[node name="NPCSpawn5" type="Marker2D" parent="." unique_id=797034252]
+position = Vector2(234, 83)
+
+[node name="NPCSpawn6" type="Marker2D" parent="." unique_id=2136523284]
+position = Vector2(351, 3)
+
+[node name="NPCSpawn7" type="Marker2D" parent="." unique_id=1616675254]
+position = Vector2(391, 88)
+
+[node name="NPCSpawn8" type="Marker2D" parent="." unique_id=1818905109]
+position = Vector2(515, 46)
+
+[node name="NPCSpawn9" type="Marker2D" parent="." unique_id=1020801656]
+position = Vector2(623, 103)
+
+[node name="NPCSpawn10" type="Marker2D" parent="." unique_id=1990042400]
+position = Vector2(-622, 97)
