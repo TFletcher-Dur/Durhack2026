@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://q0qms16pqpn3"]
+
+[ext_resource type="Script" uid="uid://bgdsrhnrx46ev" path="res://Scenes/building_exchange_ll.gd" id="1_6ukrj"]
+[ext_resource type="Texture2D" uid="uid://d3fldgomkxogr" path="res://Assets/building_exchange_ll.png" id="1_8bfgd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6j3a"]
+size = Vector2(719, 693)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_navjx"]
+size = Vector2(150, 157)
+
+[node name="building_exchange_LL" type="Node2D" unique_id=572680540]
+script = ExtResource("1_6ukrj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=667484215]
+texture_filter = 1
+scale = Vector2(6, 6)
+texture = ExtResource("1_8bfgd")
+
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=2046898040]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1974539372]
+position = Vector2(-1.5, -13.5)
+shape = SubResource("RectangleShape2D_g6j3a")
+
+[node name="ExchangeText" type="Label" parent="." unique_id=1823245448]
+offset_left = 6.0
+offset_top = 96.0
+offset_right = 271.0
+offset_bottom = 150.0
+text = "XPRHASUDA <=> XPRAUGHSD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=267113361]
+position = Vector2(-197, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=504207930]
+position = Vector2(15, -1.5)
+shape = SubResource("RectangleShape2D_navjx")

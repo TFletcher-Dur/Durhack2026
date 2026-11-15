@@ -5,9 +5,10 @@ const NPC_SCENES = [
 ]
 
 var standardLL = preload("res://Scenes/building_standard_ll.tscn")
-var standardLR = preload("res://Scenes/building_exchange_lr.tscn")
-var standardUL = preload("res://Scenes/buliding_standard_ul.tscn")
+var exchangeLL = preload("res://Scenes/building_exchange_ll.tscn")
+var standardLR = preload("res://Scenes/building_standard_lr.tscn")
 var exchangeLR = preload("res://Scenes/building_exchange_lr.tscn")
+var standardUL = preload("res://Scenes/buliding_standard_ul.tscn")
 var standardUR = preload("res://Scenes/building_standard_ur.tscn")
 
 const MAX_NO_NPCS = 3
@@ -92,9 +93,39 @@ func spawn_buildings():
 	
 	# Spawner LL
 	if (rotation_degrees != 90):
-		for spawner in SPAWNERS:
-			# random number generator - 
-			pass
+		for spawner_index in len(SPAWNERS):
+			if spawner_index == 0:
+				if shopTuple[0] == 0:
+					var temp = standardLL.instantiate()
+					add_child(temp)
+					temp.global_position = SPAWNERS[spawner_index].global_position
+				else:
+					var temp = exchangeLL.instantiate()
+					add_child(temp)
+					temp.global_position = SPAWNERS[spawner_index].global_position
+					temp.set_modulation(Color(randf(),randf(), randf()))
+					temp.set_text("WOW! " + str(randi()))
+				
+			elif spawner_index == 1:
+				if shopTuple[1] == 0:
+					var temp = standardLR.instantiate()
+					add_child(temp)
+					temp.global_position = SPAWNERS[spawner_index].global_position
+				else:
+					var temp = exchangeLR.instantiate()
+					add_child(temp)
+					temp.global_position = SPAWNERS[spawner_index].global_position
+					temp.set_modulation(Color(randf(),randf(), randf()))
+					temp.set_text("WOW! " + str(randi()))
+				pass
+			elif spawner_index == 2:
+				var temp = standardUL.instantiate()
+				add_child(temp)
+				temp.global_position = SPAWNERS[spawner_index].global_position
+			else:
+				var temp = standardUR.instantiate()
+				add_child(temp)
+				temp.global_position = SPAWNERS[spawner_index].global_position
 
 func set_colour(colour = "white") -> void:
 	if colour == "red":
