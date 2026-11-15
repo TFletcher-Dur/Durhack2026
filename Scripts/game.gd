@@ -5,6 +5,57 @@ func textboxEvent():
 	text.characterName = "NO one"
 	text.text = "Hello!"
 	$CanvasLayer/TextBox.enqueueText(text)
+	
+func plagueisEvent():
+	var text = Globals.TextDTO.new()
+	text.characterName = "Prince of Darkness"
+	text.text = "Did you ever hear the tragedy of Darth Plagueis The Wise? " 
+	$CanvasLayer/TextBox.enqueueText(text)
+	text.text = "I thought not. It’s not a story the Jedi would tell you. It’s a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself."
+	$CanvasLayer/TextBox.enqueueText(text)
+	
+func timeEvent():
+	var text = Globals.TextDTO.new()
+	text.characterName = "Old John"
+	text.text = "Excuse me young man... do you know... the time?"
+	text.textScrollSpeed=0.25
+	$CanvasLayer/TextBox.enqueueText(text)
+	
+func trespassingEvent():
+	var text = Globals.TextDTO.new()
+	text.characterName = "Jeff"
+	text.text = "Trespasser!"
+	$CanvasLayer/TextBox.enqueueText(text)
+	text.text = "This is Jeff's road, Jeff's road only!"
+	
+func pumpkinEvent():
+	var text = Globals.TextDTO.new()
+	text.characterName = "pumpkin"
+	text.text = "....."
+	$CanvasLayer/TextBox.enqueueText(text)
+	text.text="(pumpkins can't talk)"
+	$CanvasLayer/TextBox.enqueueText(text)
+	
+func petEvent():
+	var text = Globals.TextDTO.new()
+	text.characterName = "treat? You have treat???"
+	text.text = "Hello!"
+	$CanvasLayer/TextBox.enqueueText(text)
+
+func riddleEvent():
+	var text = Globals.TextDTO.new()
+	text.characterName = "danny"
+	text.text = "When you stop to look, you can always see me. But if you try to touch me, you can never feel me. Although you walk towards me, I remain the same distance from you. What am I?"
+	$CanvasLayer/TextBox.enqueueText(text)
+	
+func robotEvent():
+	var text = Globals.TextDTO.new()
+	text.characterName = "robot"
+	text.text = "Cyborg... malfunctioning... get... help"
+	text.textScrollSpeed=0.25
+	$CanvasLayer/TextBox.enqueueText(text)
+
+	
 
 class _event_manager:
 	var _event_dict: Dictionary
