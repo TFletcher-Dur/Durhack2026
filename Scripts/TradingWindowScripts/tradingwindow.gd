@@ -12,22 +12,26 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#Setting currency display if either currency has changed:
-	
 	#Setting button display values.
+	
+	$SellButton/RateText.text = str(snapped((leftCurrency.rate / rightCurrency.rate), 0.0001))
+	$BuyButton/RateText.text = str(snapped((rightCurrency.rate / leftCurrency.rate), 0.0001))
 	$SellButton/BalanceText.text = num_to_text(Globals.playerBalance[leftCurrency.letters])
 	$BuyButton/BalanceText.text = num_to_text(Globals.playerBalance[rightCurrency.letters])
 
 func _on_sell_button_pressed() -> void:
 	performTransfer(rightCurrency, leftCurrency)
+	
+func _on_buy_button_pressed() -> void:
+	performTransfer(leftCurrency, rightCurrency)
 
 
 func performTransfer(currentCurrency, targetCurrency):
 	var tradingUnit = text_to_num($TradingUnit.text)
 	#print(tradingUnit)
-	if(tradingUnit <= Globals.playerBalance[currentCurrency]):
-		Globals.playerBalance[currentCurrency] -= tradingUnit
-		Globals.playerBalance[targetCurrency] += tradingUnit * 2
+	if(tradingUnit <= Globals.playerBalance[currentCurrency.letters]):
+		Globals.playerBalance[currentCurrency.letters] -= tradingUnit
+		Globals.playerBalance[targetCurrency.letters] += tradingUnit * (targetCurrency.rate / currentCurrency.rate)
 
 
 
