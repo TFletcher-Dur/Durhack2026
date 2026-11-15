@@ -135,7 +135,7 @@ func galactic_boom_event():
 	var target = Globals.currencies.values()[randi() % len(Globals.currencies.values())]
 	target.applyEventTriggeredRateChange(-0.5)
 	galactic_event_manager.log(
-		"Galactic Boom In " + target.letters + " ,",
+		"Galactic Boom In " + target.letters,
 		"Wow, it seems like " + target.name + " is really doing well these days!"
 	)
 	#print(Globals.galactic_event_log)
@@ -144,10 +144,26 @@ func galactic_crash_event():
 	var target = Globals.currencies.values()[randi() % len(Globals.currencies.values())]
 	target.applyEventTriggeredRateChange(0.5)
 	galactic_event_manager.log(
-		"Galactic Crash In " + target.letters + " ,",
+		"Galactic Crash In " + target.letters,
 		"Did you hear the news about " + target.name + "? What a dramatic fall from grace!"
 	)
+
+const HIGHRATE = 0.1
+func galactic_uncertainty_event():
+	var target = Globals.currencies.values()[randi() % len(Globals.currencies.values())]
+	target.instability = HIGHRATE
+	galactic_event_manager.log(
+		"Uncertain Times For " + target.letters,
+		"It seems uncertain times lie on the horison for those using " + target.name + ". I wonder if sticking with it is a good idea, or if cutting one's losses would be for the best... "
+	)
 	
+func galactic_certainty_event():
+	var target = Globals.currencies.values()[randi() % len(Globals.currencies.values())]
+	target.instability = Globals.DEFAULT_RANDOM_NOISE_MAGNITUDE
+	galactic_event_manager.log(
+		"Peace And Stability In " + target.letters,
+		"Everything is stable and life is easy! What a time to be using " + target.name + "!"
+	)
 	
 class _event_manager:
 	var _event_dict: Dictionary
@@ -229,7 +245,9 @@ func _ready() -> void:
 	event_manager.add_event("Teleport Event", teleportEvent, 0.25)
 	#Galactic Events:
 	galactic_event_manager.add_event("Galactic Boom", galactic_boom_event, 1)
-	galactic_event_manager.add_event("Galactic Crash", galactic_crash_event, 100000)
+	galactic_event_manager.add_event("Galactic Crash", galactic_crash_event, 1)
+	galactic_event_manager.add_event("Galactic Uncertainty", galactic_uncertainty_event, 1)
+	galactic_event_manager.add_event("Galactic Certainty", galactic_certainty_event, 1)
 	start_timer()
 	start_galactic_timer()
 	
