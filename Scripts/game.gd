@@ -120,6 +120,8 @@ class _galactic_event_manager:
 			"name": name,
 			"npc_text": npc_text
 		})
+		while len(Globals.galactic_event_log) > 5:
+			Globals.galactic_event_log.pop_front()
 
 func start_galactic_timer():
 	galactic_timer.start(randf_range(5, 10))
