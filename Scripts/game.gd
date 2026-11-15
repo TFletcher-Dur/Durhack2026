@@ -119,3 +119,14 @@ func _on_player_detected(type: String) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+
+func teleportEvent():
+	var targetPosX = 0 + ((randi() % 5) * (1440 + 288))
+	var targetPosY = 0 + ((randi() % 5) * (1440 + 288))
+	$CharacterBody2D.global_position = Vector2(targetPosX, targetPosY)
+	var text = Globals.TextDTO.new()
+	text.characterName = "Developer"
+	text.text = "Because everyone loves getting randomly teleported across the map, we created an event to randomly teleport you across the map! You're welcome."
+	$CanvasLayer/TextBox.enqueueText(text)

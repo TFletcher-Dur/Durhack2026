@@ -14,14 +14,8 @@ class TextDTO:
 	var text
 	var textScrollSpeed = 0.015 #characters per second.
 	var isSkippable = true
-	
-<<<<<<< your changes
-	
-	
-=======
 
 """
->>>>>>> origin/main
 var playerBalance = {
 	"ABC": 1_000_000,
 	"DEF": 1_000,
